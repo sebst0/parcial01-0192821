@@ -12,6 +12,10 @@ public class ConsumoAgua {
         for (int i = 0; i < longitud; i++) {
             System.out.println("ingrese valor del consumo del sector" + " " + i);
             consumos[i] = leer.nextInt();
+            if (consumos[i]<0) {
+                    System.out.println("error, ingrese un numero positivo");
+                    consumos[i] = leer.nextInt();
+                }
             suma += consumos[i];
             if (consumoMayor < consumos[i]) {
                 consumoMayor = consumos[i];
@@ -30,6 +34,7 @@ public class ConsumoAgua {
             
         }
         for (int i = 0; i < longitud; i++) {
+            System.out.println("sector " + i + " = " + consumos[i]);
             
         }
         System.out.println("el consumo total de los sectores es de: " + suma);
