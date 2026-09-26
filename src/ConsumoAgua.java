@@ -2,14 +2,15 @@ import java.util.Scanner;
 public class ConsumoAgua {
         public static void main(String[] args) throws Exception {
 
+        // Se configura el scanner, el arreglo de 10 posiciones y las variables iniciales para el calculo
         Scanner leer = new Scanner(System.in);
-        
         int[] consumos = new int[10];
         int suma = 0;
         int longitud = consumos.length;
         int consumoMayor = consumos[0];
         int posicionMayor = 1;
 
+        // Recorre el arreglo para pedir los consumos, valida que no sean negativos y encuentra el sector con mayor consumo
         for (int i = 0; i < longitud; i++) {
             System.out.println("ingrese valor del consumo del sector" + " " + (i+1));
             consumos[i] = leer.nextInt();
@@ -26,6 +27,7 @@ public class ConsumoAgua {
             }
             
         }
+        // Calcula el promedio y recorre nuevamente el vector para contar cuántos superan el promedio y hallar la racha consecutiva más larga que supere a este
 
         double prom = (double) suma/ longitud;
         int mayoresPromedio = 0;
@@ -44,13 +46,16 @@ public class ConsumoAgua {
         } else {
         rachaActual = 0;
         }
-}
 
+        }
+
+        // Imprime el listado de cada sector con su respectivo consumo
         for (int i = 0; i < longitud; i++) {
             System.out.println("sector " + (i+1) + " = " + consumos[i]);
             
         }
 
+        // Imprime los resultados: el total, el promedio, el mayor consumo, los mayores al promedio y la racha más larga.
         System.out.println("el consumo total de los sectores es de: " + suma);
         System.out.println("el promedio del consumo es de: " + prom);
         System.out.println("el sector " + posicionMayor + " " + "con un consumo de " + consumoMayor + " " + "es el sector con mayor consumo");
