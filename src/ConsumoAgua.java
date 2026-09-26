@@ -32,21 +32,19 @@ public class ConsumoAgua {
         int rachaActual = 0;
         int rachaMaxima = 0;
 
-        for (int j = 0;j < longitud; j++) {
+        for (int j = 0; j < longitud; j++) {
             if (prom < consumos[j]) {
                 mayoresPromedio += 1;
                 rachaActual++;
-            if (rachaActual > rachaMaxima) {
-                    rachaMaxima = rachaActual;
-                
-            } else {
-                
-                rachaActual = 0;
-            }
 
-            }
-            
+                if (rachaActual > rachaMaxima) {
+                    rachaMaxima = rachaActual;
+                }
+
+        } else {
+        rachaActual = 0;
         }
+}
 
         for (int i = 0; i < longitud; i++) {
             System.out.println("sector " + (i+1) + " = " + consumos[i]);
